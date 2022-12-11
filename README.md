@@ -71,7 +71,7 @@ page](https://jhale.github.io/computational-workflows/).
 1. Create a file `Dockerfile` in the repository containing the following text.
 
 ```
-FROM ubuntu:21.04
+FROM ubuntu:22.04
 
 RUN apt-get -y update && \
     apt-get install -y python3-minimal python3-ipython python3-pytest python3-numpy && \
@@ -82,7 +82,10 @@ RUN apt-get -y update && \
 2. `git add` and `git push` the file `Dockerfile` to the repository.
 
 ```
-# Add your commands here
+notepad Dockerfile
+git add Dockerfile
+git commit
+git push
 ```
 
 ## Build and push Docker image
@@ -92,7 +95,10 @@ RUN apt-get -y update && \
    `<yourdockerhubusername>/computational-workflows`.
 
 ```
-# Add your commands here
+sudo docker login
+sudo docker build .
+sudo docker tag dd9f102a65e4 mutant2103/comp-workflows-homework
+sudo docker push mutant2103/comp-workflows-homework
 ```
 
 ## Run a container, and share in files from the host.
@@ -102,7 +108,7 @@ RUN apt-get -y update && \
    an interactive prompt inside the running container.
 
 ```
-# Add your commands here
+docker run -it -v %cd%:/root/shared mutant2103/comp-workflows-homework
 ```
 
 ## Setup a simple Python test suite
@@ -113,7 +119,8 @@ RUN apt-get -y update && \
    repository.  ``git add``, ``git commit`` and ``git push`` them.
 
 ```
-# Add your commands here
+copy C:\Users\ashwi\docker\computational-workflows\docker\computational-workflows-homework*.py C:\Users\ashwi\docker\computational-workflows\docker\jhale-computational-workflows-homework
+
 ```
 
 2. Start a Docker container using your image and share your repository into a

@@ -6,10 +6,14 @@ class InsufficientAmount(Exception):
 
 class Wallet(object):
     def __init__(self, initial_amount=0):
-        raise NotImplementedError
+        self.balance = initial_amount
 
-    def spend_cash(self, amount):
-        raise NotImplementedError
+    def spend_cash(self, amount):    
+        test = self.balance - amount
+        if test < 0:
+            raise InsufficientAmount
+        else:
+            self.balance -= amount
 
     def add_cash(self, amount):
-        raise NotImplementedError
+        self.balance += amount
