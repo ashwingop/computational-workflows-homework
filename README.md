@@ -108,7 +108,7 @@ sudo docker push mutant2103/comp-workflows-homework
    an interactive prompt inside the running container.
 
 ```
-docker run -it -v %cd%:/root/shared mutant2103/comp-workflows-homework
+docker run -it mutant2103/comp-workflows-homework
 ```
 
 ## Setup a simple Python test suite
@@ -127,7 +127,7 @@ copy C:\Users\ashwi\docker\computational-workflows\docker\computational-workflow
    directory `/root/shared` into the container.
 
 ```
-# Add your commands here
+docker run -it -v %cd%:/root/shared mutant2103/comp-workflows-homework
 ```
 
 3. Run the tests inside the container by going to `/root/shared` and running the
