@@ -120,6 +120,10 @@ docker run -it mutant2103/comp-workflows-homework
 
 ```
 copy C:\Users\ashwi\docker\computational-workflows\docker\computational-workflows-homework*.py C:\Users\ashwi\docker\computational-workflows\docker\jhale-computational-workflows-homework
+git add test_wallet.py
+git add wallet.py
+git commit
+git push
 
 ```
 
