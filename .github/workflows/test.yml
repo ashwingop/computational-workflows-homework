@@ -7,10 +7,11 @@ steps:
   main_clone:
     title: Cloning main repository...
     type: git-clone
+    stage: 'Cloning'
     repo: 'ashwingop/computational-workflows-homework'
     revision: 'main'
     git: github
-    stage: 'Cloning
+    
   build_after_my_tests:
     title: Building Go Docker Image
     type: build
@@ -19,6 +20,7 @@ steps:
     working_directory: '.'
     tag: 'master'
     dockerfile: Dockerfile
+    
   run_my_tests_inside_image:
     title: Running Unit tests inside docker image
     stage: 'Testing'
