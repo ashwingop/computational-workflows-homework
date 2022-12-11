@@ -1,0 +1,30 @@
+version: '3.0'
+stages:
+  - Cloning
+  - Building Docker image
+  - Testing
+steps:
+  main_clone:
+    title: Cloning main repository...
+    type: git-clone
+    repo: 'ashwingop/computational-workflows-homework'
+    revision: 'main'
+    git: github
+    stage: 'Cloning
+  build_after_my_tests:
+    title: Building Go Docker Image
+    type: build
+    stage: 'Building Docker image'
+    image_name: mutant2103/comp-workflows-homework
+    working_directory: '.'
+    tag: 'master'
+    dockerfile: Dockerfile
+  run_my_tests_inside_image:
+    title: Running Unit tests inside docker image
+    stage: 'Testing'
+    image: mutant2103/comp-workflows-homework
+    working_directory: '.'
+    commands:
+      - docker run -it -v %cd%:/root/shared mutant2103/comp-workflows-homework
+      - cd root/shared
+      - py.test-3   
